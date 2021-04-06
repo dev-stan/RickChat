@@ -23,12 +23,12 @@ public class ChatListener implements Listener {
 				
 				if (event.getMessage().contains("help?")) {
 					
-					player.sendMessage(new RickChat().getConfig().getString("help"));
+					player.sendMessage(new RickChat().getCustomConfig().getString("messages.respond.help"));
 				}
 				
 				if (event.getMessage().contains("rules?")) {
 					
-					player.sendMessage(new RickChat().getConfig().getString("rules"));
+					player.sendMessage(new RickChat().getCustomConfig().getString("messages.respond.rules"));
 				}
 
 			}

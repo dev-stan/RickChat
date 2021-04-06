@@ -20,11 +20,13 @@ public class RickChat extends JavaPlugin implements Listener {
 	private File customConfigFile;
 	private FileConfiguration customConfig;
 	
+	
 	public void onEnable() {
 		
 		getServer().getPluginManager().registerEvents(new ChatListener(), this);
 		
 		createCustomConfig();
+		
 	}
 	
 	public FileConfiguration getCustomConfig() {
