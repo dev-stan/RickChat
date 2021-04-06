@@ -3,4 +3,8 @@ name: RickChat
 author: Stan
 version: 1.0
 commands:
+<<<<<<< HEAD
   rick: 
+=======
+  rick: 
+>>>>>>> 57e4034446d9e457e114d5842ed072afeb201f73
