@@ -30,7 +30,11 @@ public class ChatListener implements Listener {
 					
 					player.sendMessage(new RickChat().getCustomConfig().getString("messages.respond.rules"));
 				}
-
+				
+				if (event.getMessage().contains("pvp?")) {
+					
+					player.sendMessage(new RickChat().getCustomConfig().getString("messages.respond.pvp"));
+				}
 			}
 		}
 	}
