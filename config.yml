@@ -27,6 +27,7 @@ messages:
     prefix: "&c[&fBot&c] &eRick&f: "
     suffix: ""
     base-command: "Use /mute to turn off Rick, check out /help for more info."
+    color: "&7"
     
   # Response messages, used by the "bot".
   respond:
