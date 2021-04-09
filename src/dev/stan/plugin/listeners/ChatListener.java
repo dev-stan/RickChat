@@ -12,30 +12,23 @@ import dev.stan.plugin.RickChat;
 
 public class ChatListener implements Listener {
 	
+
+	private final RickChat plugin;
+	public ChatListener(RickChat plugin){
+
+		this.plugin = plugin;
+	}
+
+
+
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent event) {
 		
 		Player player = event.getPlayer();
 		
-		if (!player.hasPermission("rick.mute")) {
+		if (event.getMessage().contains("rules") || (event.getMessage().contains("?"))) {
 			
-			if (event.getMessage().startsWith("rick") || (event.getMessage().startsWith("Rick"))) {
-				
-				if (event.getMessage().contains("help?")) {
-					
-					player.sendMessage(new RickChat().getCustomConfig().getString("messages.respond.help"));
-				}
-				
-				if (event.getMessage().contains("rules?")) {
-					
-					player.sendMessage(new RickChat().getCustomConfig().getString("messages.respond.rules"));
-				}
-				
-				if (event.getMessage().contains("pvp?")) {
-					
-					player.sendMessage(new RickChat().getCustomConfig().getString("messages.respond.pvp"));
-				}
-			}
+			player.sendMessage(plugin.prefix + plugin.color + plugin.getCustomConfig().getString("messages.respond.rules"));
 		}
 	}
 }
