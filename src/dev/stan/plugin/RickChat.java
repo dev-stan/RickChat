@@ -12,22 +12,26 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
-
 import dev.stan.plugin.listeners.ChatListener;
 
-public class RickChat extends JavaPlugin implements Listener {
+public class RickChat extends JavaPlugin{
 	
     private File customConfigFile;
     private FileConfiguration customConfig;
     
-    public String prefix = ChatColor.translateAlternateColorCodes('&', this.getCustomConfig().getString("messages.default.prefix"));
-	
-	
+    public String prefix;
+    public String color;
+    
+
+    
     @Override
     public void onEnable(){
-    	getServer().getPluginManager().registerEvents(new ChatListener(), this);
+    	getServer().getPluginManager().registerEvents(new ChatListener(this), this);
         createCustomConfig();
+        
+
+        prefix = ChatColor.translateAlternateColorCodes('&', this.getCustomConfig().getString("messages.default.prefix"));
+        color = ChatColor.translateAlternateColorCodes('&', this.getCustomConfig().getString("messages.default.color"));
     }
 
     public FileConfiguration getCustomConfig() {
@@ -35,10 +39,10 @@ public class RickChat extends JavaPlugin implements Listener {
     }
 
     private void createCustomConfig() {
-        customConfigFile = new File(getDataFolder(), "custom.yml");
+        customConfigFile = new File(getDataFolder(), "config.yml");
         if (!customConfigFile.exists()) {
             customConfigFile.getParentFile().mkdirs();
-            saveResource("custom.yml", false);
+            saveResource("config.yml", false);
          }
 
         customConfig= new YamlConfiguration();
@@ -48,17 +52,13 @@ public class RickChat extends JavaPlugin implements Listener {
             e.printStackTrace();
         }
     }
-	
-
+    
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		
 		Player player = (Player) sender;
 		
 		if (cmd.getName().equalsIgnoreCase("rick")) {
-			
-
-			player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.getCustomConfig().getString("messages.default.prefix")));
+			player.sendMessage(this.prefix + this.color + this.getCustomConfig().getString("messages.default.base-command"));
 		}
 		return false;
 	}
