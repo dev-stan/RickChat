@@ -1,0 +1,6 @@
+main: dev.stan.plugin.RickChat
+name: RickChat
+author: Stan
+version: 1.0
+commands:
+  rick: 
