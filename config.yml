@@ -28,8 +28,14 @@ messages:
 
   # Default messages, used the most.
   default:
-    prefix: "&c[&fBot&c] &eRick&f: "
-    suffix: ""
+    prefix:
+      enabled: true
+      message: "&c[&fBot&c] &eRick&f: "
+      
+    suffix:
+      enabled: false
+      message: "."
+      
     base-command: "Use /mute to turn off Rick, check out /help for more info."
     color: "&7"
     
