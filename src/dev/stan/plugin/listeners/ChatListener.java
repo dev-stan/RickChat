@@ -18,10 +18,6 @@ public class ChatListener implements Listener {
 		this.plugin = plugin;
 	}
 	
-	public void randomMsg( ) {
-		
-	}
-
 
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent event) {
