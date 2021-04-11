@@ -46,6 +46,11 @@ messages:
     help:
       enabled: true
       message: "This is the help message"
+      
+      # Trigger the bot once all the words below are in a message.
+      words:
+      - "help"
+      - "command"
     
     # Auto message when someone asks about rules in chat.
     rules:
@@ -57,20 +62,36 @@ messages:
       enabled: true
       message: "This is the PVP message"
       
+      # Trigger the bot once all the words below are in a message.
+      words:
+      - "pvp"
+      - "allowed"
+      - "?"
+      
     #Auto message when someone asks about grief in chat.
     grief:
       enabled: true
       message: "This is the grief message"
+      
+      # Trigger the bot once all the words below are in a message.
+      words:
+      - "grief"
+      - "allowed"
+      - "?"
+      
     
     # The messages below will be sent once a player joins the game.
     welcome-back:
       enabled: true
-      messages: 
+      
+      # Messages will be chosen at random.
+      message: 
         - "message1"
         - "message2"
         - "message3"
         - "message4"
         - "message5"
+      
       
 
 # Configurable permisisons
