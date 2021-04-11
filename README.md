@@ -1,6 +1,7 @@
 ### RickChat
-RickChat is a simple [Spigot](https://www.spigotmc.org/) plugin, add a friendly Bot to your server with configurable messages and permissions.
-Visit the [plugin configuration file](https://github.com/dev-stan/RickChat/blob/master/src/dev/stan/plugin/resources/config.yml) and check out all the custom settings and features.
+RickChat is a simple [Spigot](https://www.spigotmc.org/) plugin, add a response Bot to your server with configurable messages and permissions.
+Automate simple chat moderation tasks, the Bot will respond to certain keywords, all settings are configurable in the
+the [plugin configuration file](https://github.com/dev-stan/RickChat/blob/master/config.yml).
 
 ## Permissions
 - `rick.mute` - Mute the rick bot.
@@ -10,13 +11,14 @@ Visit the [plugin configuration file](https://github.com/dev-stan/RickChat/blob/
 ## Message list
 
 - `welcome`
-- `rules`
-- `claims`
-- `grief`
-- `pvp`
-- `welcome back` 
+- [x] `rules`
+- [ ] `claims`
+- [x] `grief`
+- [x] `pvp`
+- [x] `welcome back` 
+- [x] `help`
 
 ## To do
 - [x] Create the basic classes and listeners
-- [] Fix the config loaders
-- [] Add more features from the message list 
+- [x] Fix the config loaders
+- [ ] Add more features from the message list 
