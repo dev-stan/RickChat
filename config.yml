@@ -6,7 +6,11 @@ config-version: 1.0
 
 # Set this to false to disable all plugin features. If a "plugin is disabled" message shows up even though the option below is set to "true"
 # Update to the latest version and check for compatibility with other plugins.
-Enable Plugin: true
+enable-plugin: true
+
+
+# Special player is not an operator or admin, the bot will send special messages to the player.
+special-player: "Notch"
 
 # Configurable commands, make sure the names are compatible with other plugins (for example don't set main to: "essentials", "luckperms").
 # Reload the server to see the changes.
@@ -24,16 +28,40 @@ messages:
 
   # Default messages, used the most.
   default:
-    prefix: "&c[&fBot&c] &eRick&f: "
-    suffix: ""
+    prefix:
+      enabled: true
+      message: "&c[&fBot&c] &eRick&f: "
+      
+    suffix:
+      enabled: false
+      message: "."
+      
     base-command: "Use /mute to turn off Rick, check out /help for more info."
     color: "&7"
     
   # Response messages, used by the "bot".
   respond:
-    help: "This is the help message"
-    rules: "This is the rules message"
-    welcome-back: "This is the welcome back message"
+  
+    # Auto message when someone asks for help in chat.
+    help:
+      enabled: true
+      message: "This is the help message"
+    
+    # Auto message when someone asks about rules in chat.
+    rules:
+      enabled: true
+      messages: "This is the rules message"
+    
+    # The messages below will be sent once a player joins the game.
+    welcome-back:
+      enabled: true
+      messages: 
+        - "message1"
+        - "message2"
+        - "message3"
+        - "message4"
+        - "message5"
+      
 
 # Configurable permisisons
 # Reload the server to see the changes.

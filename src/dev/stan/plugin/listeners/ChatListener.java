@@ -7,10 +7,9 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import dev.stan.plugin.RickChat;
 
-// Permissions:
-//   mute: "rick.mute"
 
 public class ChatListener implements Listener {
+	
 	
 
 	private final RickChat plugin;
@@ -18,17 +17,29 @@ public class ChatListener implements Listener {
 
 		this.plugin = plugin;
 	}
-
-
+	
 
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent event) {
 		
 		Player player = event.getPlayer();
 		
-		if (event.getMessage().contains("rules") || (event.getMessage().contains("?"))) {
+		if (plugin.getCustomConfig().getBoolean("messages.respond.rules.enabled")) {
 			
-			player.sendMessage(plugin.prefix + plugin.color + plugin.getCustomConfig().getString("messages.respond.rules"));
+			if (event.getMessage().contains("rules") || (event.getMessage().contains("?"))) {
+				
+				player.sendMessage(plugin.prefix + plugin.color + plugin.getCustomConfig().getString("messages.respond.rules"));
+			}
+		}
+		
+		
+		if (plugin.getCustomConfig().getBoolean("messages.respond.help.enabled")) {
+			
+			if (event.getMessage().contains("can") || (event.getMessage().contains("pvp")) || (event.getMessage().contains("?"))) {
+				
+				player.sendMessage(plugin.prefix + plugin.color + plugin.getCustomConfig().getString("messages.respond.pvp"));
+				
+			}
 		}
 	}
 }

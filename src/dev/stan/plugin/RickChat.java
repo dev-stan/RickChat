@@ -21,16 +21,31 @@ public class RickChat extends JavaPlugin{
     
     public String prefix;
     public String color;
+    public String sufix;
     
 
     
     @Override
     public void onEnable(){
+    	
     	getServer().getPluginManager().registerEvents(new ChatListener(this), this);
         createCustomConfig();
         
-
-        prefix = ChatColor.translateAlternateColorCodes('&', this.getCustomConfig().getString("messages.default.prefix"));
+        if (this.getCustomConfig().getBoolean("messgaes.default.prefix.enabled")) {
+        	
+            prefix = ChatColor.translateAlternateColorCodes('&', this.getCustomConfig().getString("messages.default.prefix.message"));
+        	
+        } else {
+        	prefix = "";
+        }
+        
+        if (this.getCustomConfig().getBoolean("messages.default.sufix.enabled")) {
+        	
+        	sufix = ChatColor.translateAlternateColorCodes('&', this.getCustomConfig().getString("messages.default.sufix.message"));
+        } else {
+        	sufix = "";
+        }
+        
         color = ChatColor.translateAlternateColorCodes('&', this.getCustomConfig().getString("messages.default.color"));
     }
 
@@ -58,7 +73,7 @@ public class RickChat extends JavaPlugin{
 		Player player = (Player) sender;
 		
 		if (cmd.getName().equalsIgnoreCase("rick")) {
-			player.sendMessage(this.prefix + this.color + this.getCustomConfig().getString("messages.default.base-command"));
+			player.sendMessage(prefix + color + this.getCustomConfig().getString("messages.default.base-command"));
 		}
 		return false;
 	}
