@@ -13,6 +13,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import dev.stan.plugin.listeners.ChatListener;
+import dev.stan.plugin.listeners.JoinListener;
 
 public class RickChat extends JavaPlugin{
 	
@@ -29,6 +30,8 @@ public class RickChat extends JavaPlugin{
     public void onEnable(){
     	
     	getServer().getPluginManager().registerEvents(new ChatListener(this), this);
+    	getServer().getPluginManager().registerEvents(new JoinListener(this), this);
+    	
         createCustomConfig();
         
         if (this.getCustomConfig().getBoolean("messgaes.default.prefix.enabled")) {

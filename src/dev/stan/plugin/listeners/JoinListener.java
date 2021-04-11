@@ -28,7 +28,6 @@ public class JoinListener implements Listener {
 				if (p.getName().equalsIgnoreCase(plugin.getCustomConfig().getString("special-player")))  {
 					
 					p.sendMessage(plugin.prefix + plugin.color + plugin.getCustomConfig().getString("messages.respond.welcome-back") + event.getPlayer().getName());
-					
 				}
 				
 				p.sendMessage(plugin.prefix + plugin.color + plugin.getCustomConfig().getString("messages.respond.welcome-back"));

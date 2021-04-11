@@ -50,7 +50,17 @@ messages:
     # Auto message when someone asks about rules in chat.
     rules:
       enabled: true
-      messages: "This is the rules message"
+      message: "This is the rules message"
+      
+    # Auto message when somoene asks about PVP in chat.
+    pvp:
+      enabled: true
+      message: "This is the PVP message"
+      
+    #Auto message when someone asks about grief in chat.
+    grief:
+      enabled: true
+      message: "This is the grief message"
     
     # The messages below will be sent once a player joins the game.
     welcome-back:
